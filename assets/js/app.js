@@ -117,8 +117,7 @@ function makeResponsive() {
             .attr("font-size", "15px")
             .attr("fill", "black")
             .attr ("font_family", "sans-serif")
-            .text("Age")
-
+            .text("Age");
         // y-axis
         chartGroup.append("text")
             .attr("transform", "rotate(-90)")
@@ -129,13 +128,7 @@ function makeResponsive() {
             .attr("fill", "black")
             .attr ("font_family", "sans-serif")
             .text("Percentage of Smokers");
-    
-            
-
-
     });
-
-
 };
 
 makeResponsive();
