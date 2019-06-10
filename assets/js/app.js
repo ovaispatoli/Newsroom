@@ -36,13 +36,29 @@ function makeResponsive() {
 
     // Get data from CSV file
 
-    d3.csv("assets/data/data.csv").then((data)=>{
+    d3.csv("assets/data/data.csv").then((fullData)=>{
         // console.log(data);
 
         // Loop over to find smoker data and append for each smoker and their age
-        data.forEach((data)=>{
-            data.smokes 
-        })
+        fullData.forEach((data)=>{
+            data.smokes += data.smokes;
+            data.age += data.age;
+        });
+    
+        // Create Scales 
+
+        var xScale =  d3.scaleLinear()
+            .domain(d3.extent(fullData, d => d.age))
+            .range([0, chartWidth]);
+
+        var yScale = d3.scaleLinear()
+            .domain([8, d3.max(fullData, d => d.smokes)])
+            .range([chartHeight, 0]);
+
+        // Create axes
+
+        var xAxis = d3.axisBottom(xScale);
+        var yAxis = d3.axisLeft(yScale);
     })
 
 
